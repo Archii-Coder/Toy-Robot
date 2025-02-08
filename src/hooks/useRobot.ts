@@ -1,22 +1,10 @@
 // import necessary modules
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Direction, Position, RobotInitialState } from "../types";
 
 // create the function to place the robot in the grid and show its current position and direction
 const useRobot = () => {
   const [robotState, setRobotState] = useState<RobotInitialState | null>(null);
-
-  // life cycle hook to initialize the robot
-  useEffect(() => {
-    // initialize the robot
-    console.log("Initializing robot...");
-
-    // clean up the robot on unmount
-    return () => {
-      console.log("Cleaning up robot...");
-      setRobotState(null);
-    };
-  }, []);
 
   // function to place the robot in the grid
   const placeRobot = (x: number, y: number, direction: Direction) => {
@@ -70,25 +58,7 @@ const useRobot = () => {
     }
   };
 
-  //
-  const reportRobot = (): string => {
-    if (robotState) {
-      const { x, y } = robotState.position;
-      return `Robot is at (${x}, ${y}) facing ${robotState.direction}`;
-    }
-    return "Robot not placed yet";
-  };
-
-  // use the useEffect hook to update the robot's position and direction in the console
-  useEffect(() => {
-    if (robotState) {
-      console.log(
-        `Robot placed at (${robotState.position.x}, ${robotState.position.y}) facing ${robotState.direction}`
-      );
-    }
-  }, [robotState]);
-
-  return { placeRobot, robotState, moveRobot, turnRobot, reportRobot };
+  return { placeRobot, robotState, moveRobot, turnRobot };
 };
 
 // export the function
