@@ -5,7 +5,7 @@
   text-align: center;
 }
 
-.App {
+/* .App {
   text-align: center;
   padding: 20px;
 }
@@ -23,7 +23,7 @@
 .report {
   margin-top: 10px;
   font-weight: bold;
-}
+} */
 
 .logo {
   height: 6em;
@@ -59,4 +59,77 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.page-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.map-body {
+  margin-bottom: 20px;
+}
+
+.map-tile {
+  width: 60px;
+  height: 60px;
+  border: 1px solid #ccc;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.toy-agent {
+  font-size: 24px;
+  color: #007bff;
+}
+
+.control-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.control-robot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.control-robot button {
+  margin: 5px;
+  padding: 5px 10px;
+}
+
+.set-robot {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.set-robot input {
+  margin-right: 10px;
+}
+
+.report-position {
+  display: flex;
+  align-items: center;
+}
+
+.report-position input {
+  margin-left: 10px;
+}
+
+.report-message {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+.report-message p {
+  margin: 0;
+  font-family: monospace;
 }

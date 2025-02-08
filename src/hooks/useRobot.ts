@@ -41,10 +41,10 @@ const useRobot = () => {
           if (newPosition.y > 0) newPosition.y -= 1;
           break;
         case "East":
-          if (newPosition.y < 4) newPosition.y += 1;
+          if (newPosition.x < 4) newPosition.x += 1;
           break;
         case "West":
-          if (newPosition.y > 0) newPosition.y -= 1;
+          if (newPosition.x > 0) newPosition.x -= 1;
           break;
       }
 

@@ -13,28 +13,57 @@ const Grid: React.FC<GridProps> = ({ robotState }) => {
     const isRobotOn =
       robotState?.position.x === x && robotState?.position.y === y;
     return (
-      <div key={`${x}-${y}`} className={`cell ${isRobotOn ? "robot-on" : ""}`}>
-        {isRobotOn && (
-          <div className={`arrow ${robotState.direction.toLowerCase()}`}>➤</div>
-        )}
-      </div>
+      <td className="map-title">
+        <div>
+          {isRobotOn ? (
+            <div className="toy-agent">
+              <span>{getDirectionArrow(robotState.direction)}</span>
+            </div>
+          ) : (
+            "T"
+          )}
+        </div>
+      </td>
+      // <div key={`${x}-${y}`} className={`cell ${isRobotOn ? "robot-on" : ""}`}>
+      //   {isRobotOn && (
+      //     <div className={`arrow ${robotState.direction.toLowerCase()}`}>➤</div>
+      //   )}
+      // </div>
     );
+  };
+
+  //
+  const getDirectionArrow = (direction: string) => {
+    switch (direction) {
+      case "North":
+        return "↑";
+      case "East":
+        return "→";
+      case "South":
+        return "↓";
+      case "West":
+        return "←";
+      default:
+        return "↑";
+    }
   };
 
   const renderGrid = () => {
     const grid = [];
     for (let y = 4; y >= 0; y--) {
+      const row = [];
       for (let x = 0; x < 5; x++) {
-        grid.push(renderCell(x, y)); // render each cell
+        row.push(renderCell(x, y));
       }
+      grid.push(<tr key={y}>{row}</tr>);
     }
     return grid;
   };
 
   return (
-    <div className="grid-container">
-      <div className="grid">{renderGrid()}</div>
-    </div>
+    <table>
+      <tbody>{renderGrid()}</tbody>
+    </table>
   );
 };
 
