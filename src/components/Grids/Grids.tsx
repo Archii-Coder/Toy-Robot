@@ -1,19 +1,17 @@
 import React from "react";
-import "../styles/Grid.css";
-import { RobotInitialState } from "../types";
+import "../../styles/Grids.css";
+import { RobotInitialState } from "../DeployRobot";
 
-// define the grid props
 interface GridProps {
   robotState: RobotInitialState | null;
 }
 
-// create the grid component
-const Grid: React.FC<GridProps> = ({ robotState }) => {
+const Grids: React.FC<GridProps> = ({ robotState }) => {
   const renderCell = (x: number, y: number) => {
     const isRobotOn =
       robotState?.position.x === x && robotState?.position.y === y;
     return (
-      <td className="map-title">
+      <td className="map-pattern">
         <div>
           {isRobotOn ? (
             <div className="toy-agent">
@@ -27,16 +25,15 @@ const Grid: React.FC<GridProps> = ({ robotState }) => {
     );
   };
 
-  //
   const getDirectionArrow = (direction: string) => {
     switch (direction) {
-      case "North":
+      case "NORTH":
         return "↑";
-      case "East":
+      case "EAST":
         return "→";
-      case "South":
+      case "SOUTH":
         return "↓";
-      case "West":
+      case "WEST":
         return "←";
       default:
         return "↑";
@@ -62,4 +59,4 @@ const Grid: React.FC<GridProps> = ({ robotState }) => {
   );
 };
 
-export default Grid;
+export default Grids;
