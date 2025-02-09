@@ -15,55 +15,41 @@ function App() {
     placeRobot(Number(x), Number(y), direction as Direction);
   };
 
-  //
-  const directionToArrow = (direction: Direction) => {
-    switch (direction) {
-      case "North":
-        return "↑";
-      case "East":
-        return "→";
-      case "South":
-        return "↓";
-      case "West":
-        return "←";
-    }
-  };
-
   return (
     <div className="page-view">
+      <div className="report-position">
+        <label>Current Position: </label>
+        <input
+          placeholder="X | Y | Direction"
+          readOnly
+          value={
+            robotState
+              ? `${robotState.position.x} | ${robotState.position.y} | ${robotState.direction}`
+              : ""
+          }
+          style={{ textAlign: "center" }}
+        />
+      </div>
       <div className="map-body">
         <Grid robotState={robotState} />
       </div>
       <div className="control-panel">
-        <div className="control-robot">
-          <button onClick={moveRobot}>Move</button>
-          <button onClick={() => turnRobot("Left")}>Left</button>
-          <button onClick={() => turnRobot("Right")}>Right</button>
-          <label>Place input: X, Y, North/South/East/West </label>
-          <div className="set-robot">
-            <input
-              placeholder="X, Y, Direction"
-              value={placeInput}
-              onChange={(e) => setPlaceInput(e.target.value)}
-              style={{ textAlign: "center" }}
-            />
-            <button onClick={handlePlace}>Place Robot</button>
-          </div>
-        </div>
-        <div className="report-position">
-          <label>Current Position: </label>
+        <label>DEPLOY INPUT FORMAT BELOW: </label>
+        <label>X | Y | NORTH / SOUTH / EAST / WEST </label>
+        <div className="set-robot">
           <input
-            placeholder="X, Y, Direction"
-            readOnly
-            value={
-              robotState
-                ? `${robotState.position.x},${
-                    robotState.position.y
-                  },${directionToArrow(robotState.direction)}`
-                : ""
-            }
+            placeholder="X | Y | Direction"
+            value={placeInput}
+            onChange={(e) => setPlaceInput(e.target.value)}
             style={{ textAlign: "center" }}
           />
+          <button onClick={handlePlace}>PLACE REBOT</button>
+        </div>
+
+        <div className="control-robot">
+          <button onClick={() => turnRobot("Left")}>LEFT</button>
+          <button onClick={moveRobot}>MOVE</button>
+          <button onClick={() => turnRobot("Right")}>RIGHT</button>
         </div>
       </div>
     </div>

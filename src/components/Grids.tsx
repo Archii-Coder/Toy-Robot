@@ -24,11 +24,6 @@ const Grid: React.FC<GridProps> = ({ robotState }) => {
           )}
         </div>
       </td>
-      // <div key={`${x}-${y}`} className={`cell ${isRobotOn ? "robot-on" : ""}`}>
-      //   {isRobotOn && (
-      //     <div className={`arrow ${robotState.direction.toLowerCase()}`}>➤</div>
-      //   )}
-      // </div>
     );
   };
 

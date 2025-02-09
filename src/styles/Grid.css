@@ -1,26 +1,27 @@
-Grid.css .grid-container {
+.grid-container {
   display: flex;
   justify-content: center;
   margin-top: 20px;
 }
 
 .grid {
+  width: 100%;
+  height: 100%;
   display: grid;
-  grid-template-columns: repeat(5, 60px);
-  gap: 1px;
-  background-color: #333;
-  padding: 1px;
-  border: 2px solid #666;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 2px;
 }
 
 .cell {
-  width: 60px;
-  height: 60px;
+  width: 100%;
+  height: 100%;
   background-color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 1px solid #ccc;
+  box-sizing: border-box;
 }
 
 .robot {
