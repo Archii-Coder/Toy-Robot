@@ -1,22 +1,15 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Button from "./components/Button";
 
-interface CommandsProps {
-  onPlace: (x: string, y: string, direction: string) => void;
-  onMove: () => void;
-  onTurnLeft: () => void;
-  onTurnRight: () => void;
-}
-
-const Commands: React.FC<CommandsProps> = ({
+const Commands = ({ 
   onPlace,
   onMove,
   onTurnLeft,
   onTurnRight,
-}) => {
-  const [x, setX] = useState<string>("0");
-  const [y, setY] = useState<string>("0");
-  const [direction, setDirection] = useState<string>("N");
+ }) => {
+  const [x, setX] = useState('0');
+  const [y, setY] = useState('0');
+  const [direction, setDirection] = useState('N');
 
   return (
     <div className="p-4 font-bold">
@@ -47,7 +40,7 @@ const Commands: React.FC<CommandsProps> = ({
             />
           </div>
         </div>
-
+  
         <div className="flex items-center">
           <label htmlFor="direction" className="mr-2 whitespace-nowrap">
             Direction:
@@ -64,7 +57,7 @@ const Commands: React.FC<CommandsProps> = ({
             <option value="W">West</option>
           </select>
         </div>
-
+  
         <Button className="mt-4" onClick={() => onPlace(x, y, direction)}>
           Place
         </Button>
@@ -79,7 +72,7 @@ const Commands: React.FC<CommandsProps> = ({
         </li>
       </ul>
     </div>
-  );
-};
+  )
+ }
 
 export default Commands;

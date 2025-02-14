@@ -1,6 +1,4 @@
-import React from "react";
-
-const Logo: React.FC = () => {
+const Logo = () => {
   return (
     <h1 className="m-0 text-2xl">
       Toy&nbsp;

@@ -1,14 +1,8 @@
-import React from "react";
-import { RobotCoordinate } from "../../Game";
-import Board from "./components/Board";
 import Placement from "./components/Placement";
 import Robot from "./components/Robot";
+import Board from "./components/Board";
 
-interface StageProps {
-  robotCoordinate: RobotCoordinate | null;
-}
-
-const Stage: React.FC<StageProps> = ({ robotCoordinate }) => {
+const Stage = ({ robotCoordinate }) => {
   return (
     <div className="relative">
       {robotCoordinate && (

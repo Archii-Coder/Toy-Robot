@@ -1,11 +1,6 @@
-import React from "react";
 import Cell from "./components/Cell";
 
-interface RowProps {
-  x: number;
-}
-
-const Row: React.FC<RowProps> = ({ x }) => {
+const Row = ({ x }) => {
   return (
     <div role="row" aria-label={`Row ${x}`} className="flex">
       <Cell x={x} y={0} />
